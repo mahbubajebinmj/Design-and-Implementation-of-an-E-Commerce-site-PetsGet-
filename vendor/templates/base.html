@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>PetsGet</title>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-image: url('https://th.bing.com/th/id/R.ed393954853fac5ab2645cc156bc0cfc?rik=9dgnK9RF33AwTA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-wC6M_4vZRsY%2fT2wQ85IW11I%2fAAAAAAAAGKM%2fy2R4nyW96Rg%2fs1600%2fCat-05.jpg&ehk=OIoBuajkA%2bckV20zAdo%2bSP3z4MPIuMtfg%2f82ojD0BoM%3d&risl=&pid=ImgRaw&r=0');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      background-color: #17a2b8;
+      padding: 15px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .navbar-toggler {
+      border-color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #fff;
+    }
+
+    .one-edge-shadow {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .display-8 {
+      font-weight: 200;
+      font-size: 30px;
+      color: teal;
+    }
+
+    .main-content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    
+  </style>
+
+</head>
+
+
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="display-4">PetsGet</h1>
+      <p class="lead">Your one-stop pet shop</p>
+    </div>
+  </header>
+
+  <!-- navbar -->
+  
+<nav class="one-edge-shadow
+navbar navbar-light
+sticky-top navbar 
+navbar-expand-lg
+text-white">
+  <a class="navbar-brand ms-3 text-dark " href="/">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" style="width:50px;height:50px,color:text-light;">PetsGet</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/store">Store <span class="sr-only">(current)</span></a>
+      </li>
+
+        </ul>
+
+
+
+
+    <ul class=" navbar-nav my-2 my-lg-0">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/cart">Cart 
+          <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
+          <span class="sr-only">(current)</span></a>
+      </li>
+
+      {% if request.session.customer %}
+      
+      <li class="nav-item active ">
+        <a class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active ">
+        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+      </li>
+      {% else %}
+     
+      <li class="nav-item active">
+        <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/vendor">become vendor<span class="sr-only">(current)</span></a>
+      </li>
+      {% endif %}
+
+
+    </ul>
+
+
+  </div>
+</nav>
+<!---->
+
+  <!-- Your content goes here -->
+  <div class="container main-content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer style="text-align: center; padding: 20px; background-color: #f8f8f8;">
+    <div style="display: inline-block; margin-right: 10px;">
+      <a href="#" target="_blank" rel="noopener noreferrer"><img src="facebook-icon.png" alt="Facebook" style="width: 30px; height: 30px;"></a>
+    </div>
+    <div style="display: inline-block; margin-right: 10px;">
+      <a href="#" target="_blank" rel="noopener noreferrer"><img src="twitter-icon.png" alt="Twitter" style="width: 30px; height: 30px;"></a>
+    </div>
+    <div style="display: inline-block; margin-right: 10px;">
+      <a href="#" target="_blank" rel="noopener noreferrer"><img src="instagram-icon.png" alt="Instagram" style="width: 30px; height: 30px;"></a>
+    </div>
+    <div style="display: inline-block;">
+      <a href="#" target="_blank" rel="noopener noreferrer"><img src="pinterest-icon.png" alt="Pinterest" style="width: 30px; height: 30px;"></a>
+    </div>
+    <p style="margin-top: 10px; font-size: 14px;">Follow us on social media for the latest updates and adorable pet moments!</p>
+    <p style="font-size: 12px; color: #555;">&copy; 2024 Your Pet Shop. All rights reserved.</p>
+  </footer>
+  
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
